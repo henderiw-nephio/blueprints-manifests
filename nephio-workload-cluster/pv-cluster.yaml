@@ -1,0 +1,12 @@
+api-version: config.porch.kpt.dev/v1alpha1
+kind: PackageVariant
+metadata:
+  name: xxx-cluster
+spec:
+  upstream:
+    package: cluster
+    repo: blueprint-manifests
+    revision: main
+  downstream:
+    package: xxx-cluster
+    repo: mgmt

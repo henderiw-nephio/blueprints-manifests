@@ -1,11 +1,11 @@
 apiVersion: kpt.dev/v1
 kind: Kptfile
 metadata:
-  name: cluster
+  name: repo
   annotations:
     config.kubernetes.io/local-config: "true"
 info:
-  description: blueprint cluster package
+  description: blueprint repo package
 pipeline:
   mutators:
   # - image: gcr.io/kpt-fn/search-replace:v0.2.0

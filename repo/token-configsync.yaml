@@ -1,0 +1,8 @@
+apiVersion: infra.nephio.org/v1alpha1
+kind: Token
+metadata:
+  name: xxx-access-token-config-sync
+  namespace: config-management-system
+  annotation:
+    nephio.org/site: xxx
+spec:

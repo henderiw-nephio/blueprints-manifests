@@ -1,5 +1,0 @@
-apiVersion: infra.nephio.org/v1alpha1
-kind: Token
-metadata:
-  name: xxx-access-token
-spec:

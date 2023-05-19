@@ -1,0 +1,12 @@
+# api-version: config.porch.kpt.dev/v1alpha1
+# kind: PackageVariant
+# metadata:
+#   name: xxx-rootsync
+# spec:
+#   upstream:
+#     package: rootsync
+#     repo: blueprint-manifests
+#     revision: main
+#   downstream:
+#     package: xxx-rootsync
+#     repo: mgmt-staging
