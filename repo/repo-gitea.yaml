@@ -1,8 +1,8 @@
 apiVersion: infra.nephio.org/v1alpha1
 kind: Repository
 metadata:
-  name: xxx
+  name: yyy
   namespace: default
 spec:
-  description: xxx repository
+  description: yyy repository
   defaultBranch: main

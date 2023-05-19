@@ -1,7 +1,7 @@
 apiVersion: config.porch.kpt.dev/v1alpha1
 kind: Repository
 metadata:
-  name: xxx
+  name: yyy
   namespace: default
   labels:
     kpt.dev/repository-content: external-blueprints
@@ -11,7 +11,7 @@ spec:
   git:
     branch: main
     directory: /
-    repo: http://gitea-http.gitea.svc.cluster.local:3000/nephio/xxx.git
+    repo: http://gitea-http.gitea.svc.cluster.local:3000/nephio/yyy.git
     secretRef:
-      name: xxx-access-token-porch
+      name: yyy-access-token-porch
   type: git
