@@ -13,4 +13,4 @@ replacements:
   - select:
       kind: Cluster
     fieldPaths:
-    - metadata.name
+    - metadata.siteName
