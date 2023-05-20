@@ -21,6 +21,6 @@ source: |-
         r["spec"]["git"]["secretRef"]["name"] = siteName + "-access-token-porch"
       if krmfn.match_gvk(r, "infra.nephio.org/v1alpha1", "Token"):
         r["metadata"]["name"] = siteName + "-access-token-porch"
-        if krmfn.match_namespace(r, "config-management-system"):
-          r["metadata"]["name"] = siteName + "-access-token-config-sync"
+        if r["metadata"]["annotations"]["nephio.org/configsync"]:
+          r["metadata"]["name"] = siteName + "-access-token-configsync"
   set_values(ctx.resource_list["items"])
