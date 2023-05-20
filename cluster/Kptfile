@@ -8,6 +8,8 @@ info:
   description: blueprint cluster package
 pipeline:
   mutators:
+  - image: gcr.io/kpt-fn/apply-replacements:v0.1.1
+    configPath: apply-replacements.yaml
   # - image: gcr.io/kpt-fn/search-replace:v0.2.0
   #   configMap:
   #     by-path: metadata.**
