@@ -2,5 +2,6 @@ apiVersion: infra.nephio.org/v1alpha1
 kind: Token
 metadata:
   name: example-site-name-access-token-config-sync
-  namespace: config-management-system
+  namespace: default
+  #namespace: config-management-system
 spec: {}
