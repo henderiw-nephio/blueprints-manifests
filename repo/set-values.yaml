@@ -12,6 +12,10 @@ source: |-
         siteName = r["data"].get("siteName", "default")
         name = r["data"]["name"]
     for r in resources:
+      if krmfn.match_gvk(r, "v1", "ConfigMap") and krmfn.match_name(r, "localconfig"):
+        siteName = r["data"].get("siteName", "default")
+        name = r["data"]["name"]
+    for r in resources:
       if krmfn.match_gvk(r, "infra.nephio.org/v1alpha1", "Repository"):
         r["metadata"]["name"] = siteName
         r["spec"]["description"] = siteName + " repository"
@@ -23,4 +27,6 @@ source: |-
         r["metadata"]["name"] = siteName + "-access-token-porch"
         if "annotations" in r["metadata"] and "nephio.org/app" in r["metadata"]["annotations"] and "configsync" in r["metadata"]["annotations"]["nephio.org/app"]:
           r["metadata"]["name"] = siteName + "-access-token-configsync"
+          if siteName == mgmt || sitename == mgmt-staging:
+            r["metadata"]["namespace"] = "config-management-system"
   set_values(ctx.resource_list["items"])
