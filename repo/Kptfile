@@ -5,9 +5,11 @@ metadata:
   annotations:
     config.kubernetes.io/local-config: "true"
 info:
-  description: blueprint repo package
+  description: Provisions a Gitea repo for a Nephio cluster
 pipeline:
   mutators:
+  - image: gcr.io/kpt-fn/starlark:v0.4.3
+    configPath: set-values.yaml
   # - image: gcr.io/kpt-fn/search-replace:v0.2.0
   #   configMap:
   #     by-path: metadata.**

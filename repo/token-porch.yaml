@@ -1,8 +1,6 @@
 apiVersion: infra.nephio.org/v1alpha1
 kind: Token
 metadata:
-  name: yyy-access-token-porch
+  name: example-site-name-access-token-porch
   namespace: default
-  annotation:
-    nephio.org/site: yyy
-spec:
+spec: {}
