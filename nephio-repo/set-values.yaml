@@ -26,6 +26,7 @@ source: |-
         r["spec"]["git"]["secretRef"]["name"] = siteName + "-access-token-porch"
         if siteName == "mgmt-staging":
            r["spec"]["deployment"] = False
+           r["metadata"]["annotations"]["nephio.org/staging"] = True
       if krmfn.match_gvk(r, "infra.nephio.org/v1alpha1", "Token"):
         r["metadata"]["name"] = siteName + "-access-token-porch"
         if "annotations" in r["metadata"] and "nephio.org/app" in r["metadata"]["annotations"] and "configsync" in r["metadata"]["annotations"]["nephio.org/app"]:
