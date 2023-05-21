@@ -10,15 +10,15 @@ source: |-
   def set_values(resources):
     for r in resources:
       if krmfn.match_gvk(r, "v1", "ConfigMap") and krmfn.match_name(r, "kptfile.kpt.dev"):
-        siteName = r["data"].get("siteName", "default")
+        clusterName = r["data"].get("clusterName", "default")
         name = r["data"]["name"]
     for r in resources:
       if krmfn.match_gvk(r, "v1", "ConfigMap") and krmfn.match_name(r, "localconfig"):
-        siteName = r["data"].get("siteName", "default")
+        clusterName = r["data"].get("clusterName", "default")
         name = r["data"]["name"]
     for r in resources:
       if krmfn.match_gvk(r, "configsync.gke.io/v1beta1", "RootSync"):
-        r["metadata"]["name"] = siteName
-        r["spec"]["git"]["repo"] = "http://gitea-http.gitea.svc.cluster.local:3000/nephio/" + siteName + ".git"
-        r["spec"]["git"]["secretRef"]["name"] = siteName + "-access-token-configsync"
+        r["metadata"]["name"] = clusterName
+        r["spec"]["git"]["repo"] = "http://gitea-http.gitea.svc.cluster.local:3000/nephio/" + clusterName + ".git"
+        r["spec"]["git"]["secretRef"]["name"] = clusterName + "-access-token-configsync"
   set_values(ctx.resource_list["items"])

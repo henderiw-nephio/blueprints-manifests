@@ -15,8 +15,8 @@ replacements:
     fieldPaths:
     - metadata.name
     - spec.downstream.package
-    - spec.packageContext.data.siteName
-    - spec.pipeline.mutators.[image=gcr.io/kpt-fn/set-annotations:v0.1.4].configMap.[nephio.org/site]
+    - spec.packageContext.data.clusterName
+    - spec.pipeline.mutators.[image=gcr.io/kpt-fn/set-annotations:v0.1.4].configMap.[nephio.org/cluster-name]
     options:
       delimiter: '-'
       index: 0

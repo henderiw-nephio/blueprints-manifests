@@ -10,27 +10,27 @@ source: |-
   def set_values(resources):
     for r in resources:
       if krmfn.match_gvk(r, "v1", "ConfigMap") and krmfn.match_name(r, "kptfile.kpt.dev"):
-        siteName = r["data"].get("siteName", "default")
+        clusterName = r["data"].get("clusterName", "default")
         name = r["data"]["name"]
     for r in resources:
       if krmfn.match_gvk(r, "v1", "ConfigMap") and krmfn.match_name(r, "localconfig"):
-        siteName = r["data"].get("siteName", "default")
+        clusterName = r["data"].get("clusterName", "default")
         name = r["data"]["name"]
     for r in resources:
       if krmfn.match_gvk(r, "infra.nephio.org/v1alpha1", "Repository"):
-        r["metadata"]["name"] = siteName
-        r["spec"]["description"] = siteName + " repository"
+        r["metadata"]["name"] = clusterName
+        r["spec"]["description"] = clusterName + " repository"
       if krmfn.match_gvk(r, "config.porch.kpt.dev/v1alpha1", "Repository"):
-        r["metadata"]["name"] = siteName
-        r["spec"]["git"]["repo"] = "http://gitea-http.gitea.svc.cluster.local:3000/nephio/" + siteName + ".git"
-        r["spec"]["git"]["secretRef"]["name"] = siteName + "-access-token-porch"
-        if siteName == "mgmt-staging":
+        r["metadata"]["name"] = clusterName
+        r["spec"]["git"]["repo"] = "http://gitea-http.gitea.svc.cluster.local:3000/nephio/" + clusterName + ".git"
+        r["spec"]["git"]["secretRef"]["name"] = clusterName + "-access-token-porch"
+        if clusterName == "mgmt-staging":
            r["spec"]["deployment"] = False
            r["metadata"]["annotations"]["nephio.org/staging"] = True
       if krmfn.match_gvk(r, "infra.nephio.org/v1alpha1", "Token"):
-        r["metadata"]["name"] = siteName + "-access-token-porch"
+        r["metadata"]["name"] = clusterName + "-access-token-porch"
         if "annotations" in r["metadata"] and "nephio.org/app" in r["metadata"]["annotations"] and "configsync" in r["metadata"]["annotations"]["nephio.org/app"]:
-          r["metadata"]["name"] = siteName + "-access-token-configsync"
-          if siteName == "mgmt" or siteName == "mgmt-staging":
+          r["metadata"]["name"] = clusterName + "-access-token-configsync"
+          if clusterName == "mgmt" or clusterName == "mgmt-staging":
             r["metadata"]["namespace"] = "config-management-system"
   set_values(ctx.resource_list["items"])

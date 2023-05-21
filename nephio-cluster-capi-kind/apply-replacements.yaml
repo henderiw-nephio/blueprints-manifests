@@ -8,7 +8,7 @@ replacements:
 - source:
     kind: ConfigMap
     name: kptfile.kpt.dev
-    fieldPath: data.siteName
+    fieldPath: data.clusterName
   targets:
   - select:
       kind: Cluster
