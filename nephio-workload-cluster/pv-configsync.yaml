@@ -6,7 +6,7 @@ spec:
   upstream:
     package: nephio-configsync
     repo: blueprint-manifests
-    revision: v1
+    revision: main
   downstream:
     package: example-configsync
     repo: mgmt-staging

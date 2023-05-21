@@ -6,7 +6,7 @@ spec:
   upstream:
     package: nephio-rootsync
     repo: blueprint-manifests
-    revision: v1
+    revision: main
   downstream:
     package: example-rootsync
     repo: mgmt-staging
