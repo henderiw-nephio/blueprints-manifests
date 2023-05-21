@@ -17,7 +17,7 @@ source: |-
         siteName = r["data"].get("siteName", "default")
         name = r["data"]["name"]
     for r in resources:
-      if krmfn.match_gvk(r, "config.porch.kpt.dev/v1alpha1", "Repository"):
+      if krmfn.match_gvk(r, "configsync.gke.io/v1beta1", "RootSync"):
         r["metadata"]["name"] = siteName
         r["spec"]["git"]["repo"] = "http://gitea-http.gitea.svc.cluster.local:3000/nephio/" + siteName + ".git"
         r["spec"]["git"]["secretRef"]["name"] = siteName + "-access-token-configsync"
