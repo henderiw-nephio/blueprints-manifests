@@ -1,0 +1,24 @@
+apiVersion: fn.kpt.dev/v1alpha1
+kind: StarlarkRun
+metadata: # kpt-merge: /generate-values
+  name: generate-values
+  annotations:
+    config.kubernetes.io/local-config: "true"
+    internal.kpt.dev/upstream-identifier: fn.kpt.dev|StarlarkRun|default|generate-values
+source: |-
+  load("krmfn.star", "krmfn")
+  def set_values(resources):
+    for r in resources:
+      if krmfn.match_gvk(r, "v1", "ConfigMap") and krmfn.match_name(r, "kptfile.kpt.dev"):
+        siteName = r["data"].get("siteName", "default")
+        name = r["data"]["name"]
+    for r in resources:
+      if krmfn.match_gvk(r, "v1", "ConfigMap") and krmfn.match_name(r, "localconfig"):
+        siteName = r["data"].get("siteName", "default")
+        name = r["data"]["name"]
+    for r in resources:
+      if krmfn.match_gvk(r, "config.porch.kpt.dev/v1alpha1", "Repository"):
+        r["metadata"]["name"] = siteName
+        r["spec"]["git"]["repo"] = "http://gitea-http.gitea.svc.cluster.local:3000/nephio/" + siteName + ".git"
+        r["spec"]["git"]["secretRef"]["name"] = siteName + "-access-token-configsync"
+  set_values(ctx.resource_list["items"])

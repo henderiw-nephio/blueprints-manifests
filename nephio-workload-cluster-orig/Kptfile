@@ -1,0 +1,20 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata:
+  name: nephio-workload-cluster
+  annotations:
+    config.kubernetes.io/local-config: "true"
+info:
+  description: nephio workload package
+pipeline:
+  mutators:
+  - image: gcr.io/kpt-fn/search-replace:v0.2.0
+    configMap:
+      by-path: metadata.**
+      by-value-regex: 'xxx(.*)'
+      put-value: cluster01${1}
+  - image: gcr.io/kpt-fn/search-replace:v0.2.0
+    configMap:
+      by-path: spec.**
+      by-value-regex: 'xxx(.*)'
+      put-value: cluster01${1}
