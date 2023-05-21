@@ -4,7 +4,7 @@ metadata:
   name: example-rootsync
 spec:
   upstream:
-    package: rootsync
+    package: nephio-rootsync
     repo: blueprint-manifests
     revision: v1
   downstream:
