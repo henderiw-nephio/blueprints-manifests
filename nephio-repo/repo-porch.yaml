@@ -9,7 +9,7 @@ spec:
   git:
     branch: main
     directory: /
-    repo: http://gitea-http.gitea.svc.cluster.local:3000/nephio/example-site-name.git
+    repo: http://172.18.0.200:3000/nephio/example-site-name.git
     secretRef:
       name: example-site-name-access-token-porch
   type: git

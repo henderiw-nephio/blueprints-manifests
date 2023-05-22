@@ -6,7 +6,7 @@ metadata:
 spec:
   sourceFormat: unstructured
   git:
-    repo: http://gitea-http.gitea.svc.cluster.local:3000/nephio/example-site-name.git
+    repo: http://172.18.0.200:3000/nephio/example-site-name.git
     branch: main
     auth: token
     secretRef:

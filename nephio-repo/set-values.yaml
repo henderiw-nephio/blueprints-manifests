@@ -22,7 +22,7 @@ source: |-
         r["spec"]["description"] = clusterName + " repository"
       if krmfn.match_gvk(r, "config.porch.kpt.dev/v1alpha1", "Repository"):
         r["metadata"]["name"] = clusterName
-        r["spec"]["git"]["repo"] = "http://gitea-http.gitea.svc.cluster.local:3000/nephio/" + clusterName + ".git"
+        r["spec"]["git"]["repo"] = "http://172.18.0.200:3000/nephio/" + clusterName + ".git"
         r["spec"]["git"]["secretRef"]["name"] = clusterName + "-access-token-porch"
         if clusterName == "mgmt-staging":
            r["spec"]["deployment"] = False
