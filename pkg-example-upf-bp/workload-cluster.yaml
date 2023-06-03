@@ -7,3 +7,5 @@ metadata:
     kpt.dev/config-injection: required
 spec:
   clusterName: example
+status:
+  masterInterface: eth1
