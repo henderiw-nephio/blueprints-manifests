@@ -8,5 +8,5 @@ metadata:
 spec:
   networkInstance:
     name: vpc-ran
-  cniType: sriov
-  attachementType: vlan
+  cniType: macvlan
+  attachmentType: vlan
