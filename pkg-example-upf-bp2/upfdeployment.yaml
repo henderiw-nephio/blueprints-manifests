@@ -1,4 +1,4 @@
 apiVersion: workload.nephio.org/v1alpha1
 kind: UPFDeployment
 metadata:
-  name: upf-example-cluster01
+  name: upf-empty

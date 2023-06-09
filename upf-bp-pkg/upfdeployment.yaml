@@ -1,0 +1,38 @@
+apiVersion: workload.nephio.org/v1alpha1
+kind: UPFDeployment
+metadata:
+  name: upf-example-cluster01
+spec:
+  capacity:
+    maxDownlinkThroughput: 10G
+    maxUplinkThroughput: 10G
+  interfaces:
+  - name: n3
+    ipv4:
+      address: 10.0.0.10/24
+      gateway: 10.0.0.1
+    vlanID: 10
+  - name: n4
+    ipv4:
+      address: 10.0.0.10/24
+      gateway: 10.0.0.1
+    vlanID: 10
+  - name: n6
+    ipv4:
+      address: 10.0.0.10/24
+      gateway: 10.0.0.1
+    vlanID: 10
+  networkInstances:
+  - name: vpc-internal
+    interfaces:
+    - n4
+  - name: vpc-internet
+    dataNetworks:
+    - name: vpc-internet
+      pool:
+      - prefix: 172.0.0.0/8
+    interfaces:
+    - n6
+  - name: vpc-ran
+    interfaces:
+    - n3
