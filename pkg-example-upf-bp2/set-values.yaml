@@ -22,11 +22,11 @@ source: |-
         r["metadata"]["name"] = "upf-" + clusterName
       if krmfn.match_gvk(r, "req.nephio.org/v1alpha1", "Interface"):
         if "annotations" in r["metadata"] and "specializer.nephio.org/owner" in r["metadata"]["annotations"]:
-          r["metadata"]["annotations"][specializer.nephio.org/owner"] = "workload.nephio.org/v1alpha1.UPFDeployment.upf" + clusterName
+          r["metadata"]["annotations"]["specializer.nephio.org/owner"] = "workload.nephio.org/v1alpha1.UPFDeployment.upf" + clusterName
       if krmfn.match_gvk(r, "req.nephio.org/v1alpha1", "Capacity"):
         if "annotations" in r["metadata"] and "specializer.nephio.org/owner" in r["metadata"]["annotations"]:
-          r["metadata"]["annotations"][specializer.nephio.org/owner"] = "workload.nephio.org/v1alpha1.UPFDeployment.upf" + clusterName
+          r["metadata"]["annotations"]["specializer.nephio.org/owner"] = "workload.nephio.org/v1alpha1.UPFDeployment.upf" + clusterName
       if krmfn.match_gvk(r, "req.nephio.org/v1alpha1", "DataNetwork"):
         if "annotations" in r["metadata"] and "specializer.nephio.org/owner" in r["metadata"]["annotations"]:
-          r["metadata"]["annotations"][specializer.nephio.org/owner"] = "workload.nephio.org/v1alpha1.UPFDeployment.upf" + clusterName
+          r["metadata"]["annotations"]["specializer.nephio.org/owner"] = "workload.nephio.org/v1alpha1.UPFDeployment.upf" + clusterName
   set_values(ctx.resource_list["items"])
