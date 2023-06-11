@@ -8,14 +8,18 @@ spec:
     approval.nephio.org/delay: 2m
   upstream:
     package: cluster-capi-kind
-    repo: nephio-example-packages
-    revision: v4
+    repo: blueprint-manifests
+    revision: main
   downstream:
     package: example-cluster
     repo: mgmt
   injectors:
   - kind: WorkloadCluster
     name: example
+  - group: inv.nephio.org
+    version: v1alpha1
+    kind: Node
+    name: leaf1
   pipeline:
     mutators:
     - image: gcr.io/kpt-fn/set-annotations:v0.1.4
