@@ -8,8 +8,8 @@ spec:
     approval.nephio.org/delay: 2m
   upstream:
     package: vlanindex
-    repo: nephio-example-packages
-    revision: v1
+    repo: blueprint-manifests
+    revision: main
   downstream:
     package: example-vlanindex
     repo: mgmt
