@@ -1,11 +1,11 @@
 apiVersion: kpt.dev/v1
 kind: Kptfile
 metadata:
-  name: nephio-workload-cluster
+  name: capi-kind-cluster
   annotations:
     config.kubernetes.io/local-config: "true"
 info:
-  description: nephio workload cluster package
+  description: This package provides a blueprint for deploying a capi cluster using the capi kind docker templates
 pipeline:
   mutators:
   - image: gcr.io/kpt-fn/apply-replacements:v0.1.1

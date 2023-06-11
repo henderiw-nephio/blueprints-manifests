@@ -1,7 +1,8 @@
 apiVersion: cluster.x-k8s.io/v1beta1
 kind: Cluster
 metadata:
-  name: example
+  name: workload
+  namespace: default
 spec:
   clusterNetwork:
     pods:
@@ -34,4 +35,4 @@ spec:
       machineDeployments:
       - class: docker-default-worker
         name: md-0
-        replicas: 3
+        replicas: 1
