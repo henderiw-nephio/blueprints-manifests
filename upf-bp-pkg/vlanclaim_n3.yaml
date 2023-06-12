@@ -9,5 +9,4 @@ metadata:
 spec:
   vlanDatabase:
     name: cluster01
-status:
-  vlanID: 10
+
