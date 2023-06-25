@@ -1,13 +1,11 @@
 apiVersion: kpt.dev/v1
 kind: Kptfile
 metadata:
-  name: pkg-smf
+  name: pkg-amf
   annotations:
     config.kubernetes.io/local-config: "true"
 info:
-  description: example smf blueprint package
-  readinessGates:
-    - conditionType: nephio.org.Specializer.specialize
+  description: example amf blueprint package
 pipeline:
   mutators:
     - image: gcr.io/kpt-fn/apply-replacements:v0.1.1
@@ -16,11 +14,10 @@ pipeline:
       configPath: apply-replacements-namespace.yaml
     - image: gcr.io/kpt-fn/set-namespace:v0.4.1
       configPath: cm-namespace.yaml
-    - image: docker.io/nephio/smf-deploy-configinject-fn:latest
+    - image: docker.io/nephio/amf-deploy-fn:latest
     - image: docker.io/nephio/interface-fn:latest
     - image: docker.io/nephio/dnn-fn:latest
     - image: docker.io/nephio/nad-fn:latest
     - image: docker.io/nephio/dnn-fn:latest
     - image: docker.io/nephio/interface-fn:latest
-    - image: docker.io/nephio/smf-deploy-configinject-fn:latest
-status: {}
+    - image: docker.io/nephio/amf-deploy-fn:latest

@@ -11,7 +11,7 @@ replacements:
     fieldPath: spec.clusterName
   targets:
   - select:
-      kind: SMFDeployment
+      kind: AMFDeployment
     fieldPaths:
     - metadata.name
     options:
@@ -33,13 +33,6 @@ replacements:
       index: 1
   - select:
       kind: DataNetwork
-    fieldPaths:
-    - metadata.annotations.[specializer.nephio.org/owner]
-    options:
-      delimiter: '-'
-      index: 1
-  - select:
-      kind: Dependency
     fieldPaths:
     - metadata.annotations.[specializer.nephio.org/owner]
     options:
