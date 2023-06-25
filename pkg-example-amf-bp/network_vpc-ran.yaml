@@ -2,6 +2,8 @@ apiVersion: infra.nephio.org/v1alpha1
 kind: Network
 metadata:
   name: vpc-ran
+  annotations:
+    config.kubernetes.io/local-config: "true"
 spec:
   topology: nephio
   routingTables:
