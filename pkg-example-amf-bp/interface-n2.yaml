@@ -9,5 +9,5 @@ metadata:
 spec:
   networkInstance:
     name: vpc-ran
-  cniType: ipvlan
+  cniType: macvlan
   attachmentType: vlan
