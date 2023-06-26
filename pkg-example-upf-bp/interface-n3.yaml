@@ -1,11 +1,11 @@
 apiVersion: req.nephio.org/v1alpha1
 kind: Interface
 metadata:
-  name: n2
+  name: n3
   annotations:
-    nephio.org/purpose: n2
+    nephio.org/purpose: n3
     config.kubernetes.io/local-config: "true"
-    specializer.nephio.org/owner: workload.nephio.org/v1alpha1.AMFDeployment.amf-example
+    specializer.nephio.org/owner: workload.nephio.org/v1alpha1.UPFDeployment.upf-example
     specializer.nephio.org/namespace: example
 spec:
   networkInstance:
