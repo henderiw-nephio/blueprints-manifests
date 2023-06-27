@@ -5,10 +5,16 @@ metadata:
   annotations:
     nephio.org/network-name: n2
     config.kubernetes.io/local-config: "true"
-    specializer.nephio.org/owner: apps/v1.Deployment.ueransimgnb-example
-    specializer.nephio.org/namespace: example
+    specializer.nephio.org/owner: apps/v1.Deployment.ueransimgnb-regional
+    specializer.nephio.org/namespace: ueransim
 spec:
   networkInstance:
     name: vpc-ran
   cniType: macvlan
   attachmentType: vlan
+status:
+  ipClaimStatus:
+  - prefix: 10.0.0.10/24
+    gateway: 10.0.0.1
+  vlanClaimStatus:
+    vlanID: 10

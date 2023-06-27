@@ -1,11 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ueransimue-example
+  name: ueransimue-regional
   labels:
     app.kubernetes.io/version: "v3.2.6"
     app: ueransim
     component: ue
+  namespace: ueransim
 spec:
   selector:
     matchLabels:
@@ -30,12 +31,11 @@ spec:
         - mountPath: /ueransim/config
           name: ue-volume
         resources:
-            requests:
-              cpu: 120m
-              memory: 128Mi
+          requests:
+            cpu: 120m
+            memory: 128Mi
       dnsPolicy: ClusterFirst
       restartPolicy: Always
-
       volumes:
       - name: ue-volume
         configMap:

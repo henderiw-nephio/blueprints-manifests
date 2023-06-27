@@ -19,8 +19,8 @@ spec:
         nephio.org/prefix-kind: pool
     interfaces:
     - kind: bridgedomain
-      bridgeDomainName: vpc-internet 
-  bridgeDomains: 
+      bridgeDomainName: vpc-internet
+  bridgeDomains:
   - name: vpc-internet
     interfaces:
     - kind: interface

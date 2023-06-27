@@ -1,0 +1,14 @@
+apiVersion: vlan.resource.nephio.org/v1alpha1
+kind: VLANClaim
+metadata:
+  name: ueransimgnb-regional-n3
+  annotations:
+    config.kubernetes.io/local-config: "true"
+    specializer.nephio.org/for: apps/v1.Deployment.ueransimgnb-regional
+    specializer.nephio.org/vlanClaimName: vpc-ran-regional-bd
+    specializer.nephio.org/owner: req.nephio.org/v1alpha1.Interface.n3
+spec:
+  vlanIndex:
+    name: regional
+status:
+  vlanID: 10

@@ -6,6 +6,7 @@ metadata:
     app.kubernetes.io/version: "v3.2.6"
     app: ueransim
     component: ue
+  namespace: ueransim
 data:
   ue-config.yaml: |
     supi: "imsi-208930000000003"  # IMSI number
@@ -56,11 +57,10 @@ data:
     integrityMaxRate:
       uplink: 'full'
       downlink: 'full'
-    
+
     # List of gNB IP addresses for Radio Link Simulation
     gnbSearchList:
       - gnb-service
-
   wrapper.sh: |
     #!/bin/bash
 
