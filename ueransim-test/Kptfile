@@ -6,6 +6,8 @@ metadata:
     config.kubernetes.io/local-config: "true"
 info:
   description: this package represents ueransim NFs, which are required to perfirm E2E conn testing
+  readinessGates:
+    - conditionType: nephio.org.Specializer.specialize
 pipeline:
   mutators:
     - image: gcr.io/kpt-fn/apply-replacements:v0.1.1
@@ -14,13 +16,13 @@ pipeline:
       configPath: apply-replacements-namespace.yaml
     - image: gcr.io/kpt-fn/set-namespace:v0.4.1
       configPath: package-context.yaml
-    - image: docker.io/nephio/deploy-fn:latest
+    - image: docker.io/nephio/ueransim-deploy-fn:latest
     - image: docker.io/nephio/interface-test-fn:latest
     - image: docker.io/nephio/ipam-fn:latest
     - image: docker.io/nephio/vlan-fn:latest
     - image: docker.io/nephio/nad-test-fn:latest
     - image: docker.io/nephio/interface-test-fn:latest
-    - image: docker.io/nephio/deploy-fn:latest
+    - image: docker.io/nephio/ueransim-deploy-fn:latest
 status:
   conditions:
     - message: update done
@@ -45,6 +47,9 @@ status:
       reason: req.nephio.org/v1alpha1.Interface.n3
       status: "True"
       type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.ueransimgnb-regional-n3
+    - reason: Ready
+      status: "True"
+      type: nephio.org.Specializer.specialize
     - message: update done
       reason: apps/v1.Deployment.ueransimgnb-regional
       status: "True"
@@ -57,7 +62,7 @@ status:
       reason: req.nephio.org/v1alpha1.Interface.n2
       status: "True"
       type: vlan.resource.nephio.org/v1alpha1.VLANClaim.ueransimgnb-regional-n2
-    - message: update done
-      reason: req.nephio.org/v1alpha1.Interface.n3
+    - reason: req.nephio.org/v1alpha1.Interface.n3
       status: "True"
       type: vlan.resource.nephio.org/v1alpha1.VLANClaim.ueransimgnb-regional-n3
+      message: update done
