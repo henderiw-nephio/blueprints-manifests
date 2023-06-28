@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: uecm-example
+  name: ue-volume
   labels:
     app.kubernetes.io/version: "v3.2.6"
     app: ueransim
