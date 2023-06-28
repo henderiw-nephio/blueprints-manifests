@@ -26,6 +26,7 @@ replacements:
       index: 1
   - select:
       kind: IPClaim
+      name: amf-regional-n2-ipv4
     fieldPaths:
     - metadata.annotations.[specializer.nephio.org/owner]
     options:
